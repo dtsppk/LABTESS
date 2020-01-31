@@ -16,13 +16,9 @@ if($arrJson['events'][0]['message']['text'] == "hi"){
     $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ ";
+  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ   " .  $arrJson['events'][0]['source']['userId']  .  "  คัดลอกข้อความนี้ส่งมาที่.111 ";
  
-  $arrPostData1 = array();
-  $arrPostData1['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData1['messages'][0]['type'] = "text";
-  $arrPostData1['messages'][0]['text'] =  $arrJson['events'][0]['source']['userId'];
- 
+   
  
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
@@ -30,10 +26,6 @@ if($arrJson['events'][0]['message']['text'] == "hi"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
  
- $arrPostData1 = array();
-  $arrPostData1['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData1['messages'][0]['type'] = "text";
-  $arrPostData1['messages'][0]['text'] =  $arrJson['events'][0]['source']['userId'];
  
 }else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
   $arrPostData = array();
@@ -41,21 +33,12 @@ if($arrJson['events'][0]['message']['text'] == "hi"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
  
- $arrPostData1 = array();
-  $arrPostData1['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData1['messages'][0]['type'] = "text";
-  $arrPostData1['messages'][0]['text'] =  $arrJson['events'][0]['source']['userId'];
  
-}else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ ".$arrJson['events'][0]['source']['userId']. "กรุณาคัดลอกข้อความนี้ ส่งมาที่ไลน์ ส่วนตัวของ กาย นะครับเพื่อลงทะเบียน";
  
- $arrPostData1 = array();
-  $arrPostData1['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData1['messages'][0]['type'] = "text";
-  $arrPostData1['messages'][0]['text'] =  $arrJson['events'][0]['source']['userId'];
  
 }
  
@@ -66,8 +49,7 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData1));
-
+ 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
