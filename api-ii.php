@@ -13,14 +13,15 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
 if($arrJson['events'][0]['message']['text'] == "hi"){
-  $arrPostData = array();
+    $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "Token ID ของคุณคือ ";
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาคักลอก Token ID และนำไปกรอกข้อมูลในหน้าเว็บเพื่อรับการแจ้งเตือนแบบส่วนตัว รายละเอียดเพิ่มเติมสามารถดูได้ใน 61.7.230.237/vi ";
+  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ ";
+ 
+   $arrPostData1 = array();
+  $arrPostData1['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData1['messages'][0]['type'] = "text";
+  $arrPostData1['messages'][0]['text'] =  $arrJson['events'][0]['source']['userId'];
  
  
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
@@ -47,6 +48,8 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData1));
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData2));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
