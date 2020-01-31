@@ -16,8 +16,11 @@ if($arrJson['events'][0]['message']['text'] == "hi"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ ".$arrJson['events'][0]['source']['userId']. "กรุณาคัดลอกข้อความนี้ ส่งมาที่ ไลน์ ส่วนตัวของ กายกาก นะครับเพื่อลงทะเบียน";
-
+ $arrPostData['messages'][0]['text'] = "Token ID ของคุณคือ ";
+  $arrPostData['messages'][0]['text'] = $arrJson['events'][0]['source']['userId'];
+  $arrPostData['messages'][0]['text'] = "กรุณาคักลอก Token ID และนำไปกรอกข้อมูลในหน้าเว็บเพื่อรับการแจ้งเตือนแบบส่วนตัว รายละเอียดเพิ่มเติมสามารถดูได้ใน 61.7.230.237/vi ";
+ 
+ 
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
