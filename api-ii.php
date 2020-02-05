@@ -16,7 +16,7 @@ if($arrJson['events'][0]['message']['text'] == "hi"){
     $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ   " .  $arrJson['events'][0]['source']['userId']  .  "  คัดลอกข้อความนี้ส่งมาที่.111 ";
+  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ   " .  $arrJson['events'][0]['source']['userId']  .  "   ";
  
    
  
@@ -24,20 +24,14 @@ if($arrJson['events'][0]['message']['text'] == "hi"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
+  $arrPostData['messages'][0]['text'] = "Document Tracking System Notifier";
  
- 
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
- 
+
 }else{ 
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ ".$arrJson['events'][0]['source']['userId']. "กรุณาคัดลอกข้อความนี้ ส่งมาที่ไลน์ ส่วนตัวของ กาย นะครับเพื่อลงทะเบียน";
+  $arrPostData['messages'][0]['text'] = "สวัสดี User ID คุณคือ ".$arrJson['events'][0]['source']['userId']. "";
  
  
 }
